@@ -9,10 +9,18 @@ parametersAction.parameters.each { ParameterValue v ->
 
 def prj_param_name = "Project_Name"
 def app_param_name = "Application_Name"
+def git_url_param_name = "Git_URL"
+def branch_param_name = "Branch"
+def jenkins_file_path_param_name = "Jenkins_file_path"
+
+
 def resolver = build.buildVariableResolver
 def project_name = resolver.resolve(prj_param_name)
 def app_name = resolver.resolve(app_param_name)
 def folderPath = app_name+"/dev-ci-cd/"+project_name
+def gitURL = resolver.resolve(git_url_param_name)
+def branchName = resolver.resolve(branch_param_name)
+def jenkins_file_path = resolver.resolve(jenkins_file_path_param_name)
 
 println folderPath
 
@@ -29,14 +37,11 @@ folder(app_name+'/dev-ci-cd') {
 
 pipelineJob(folderPath) {
 
-	def repo = 'https://github.com/Pradeepaero07/mvndemo.git' 
-  	def sshRepo = 'git@github.com:Pradeepaero07/mvndemo.git' 
-
 	  description("Your App Pipeline") 
 	  keepDependencies(false) 
 
 	  properties{ 
-	    githubProjectUrl (repo) 
+	    githubProjectUrl (gitURL) 
 	    rebuild { 
 	      autoRebuild(false) 
 	    } 
@@ -48,9 +53,9 @@ pipelineJob(folderPath) {
 	    cpsScm { 
 	      	scm { 
 			git { 
-			  remote { url(repo) } 
-			  branches('master') 
-			  scriptPath('Jenkinsfile')
+			  remote { url(gitURL) } 
+			  branches(branchName) 
+			  scriptPath(jenkins_file_path)
 			} 
 	     	} 
 	} 
