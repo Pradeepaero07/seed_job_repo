@@ -22,7 +22,7 @@ folder(app_name) {
     description('Folder for dev environment continuous integration and continuous deployment jobs')
 }
 
-pipelineJob(folderPath) {
+pipelineJob(app_name+"/"+project_name) {
 
 	def repo = 'https://github.com/Pradeepaero07/mvndemo.git' 
   	def sshRepo = 'git@github.com:Pradeepaero07/mvndemo.git' 
