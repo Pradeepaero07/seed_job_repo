@@ -20,7 +20,8 @@ pipelineJob(hardcoded_param_value) {
             script("""
                 node{
 			stage('Checkout'){
-				checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Pradeepaero07/mvndemo.git']]])
+				//checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Pradeepaero07/mvndemo.git']]])
+				git 'https://github.com/Pradeepaero07/mvndemo.git'
 			}
 
 			stage('Testing Stage'){
