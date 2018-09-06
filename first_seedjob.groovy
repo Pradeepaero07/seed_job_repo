@@ -11,8 +11,12 @@ def param_name = "Project_Name"
 def resolver = build.buildVariableResolver
 def hardcoded_param_value = resolver.resolve(param_name)
 
+folder('dev-cicd') {
+    displayName('dev-cicd')
+    description('Folder for dev environment continuous integration and continuous deployment jobs')
+}
 
-pipelineJob(hardcoded_param_value) {
+pipelineJob(dev-cicd/hardcoded_param_value) {
 
 	def repo = 'https://github.com/Pradeepaero07/mvndemo.git' 
   	def sshRepo = 'git@github.com:Pradeepaero07/mvndemo.git' 
@@ -26,6 +30,7 @@ pipelineJob(hardcoded_param_value) {
 	      autoRebuild(false) 
 	    } 
 	  } 
+	
 
 	  definition { 
 
