@@ -32,7 +32,7 @@ pipelineJob(hardcoded_param_value) {
 	    cpsScm { 
 	      	scm { 
 			git { 
-			  remote { url(sshRepo) } 
+			  remote { url(repo) } 
 			  branches('master') 
 			  scriptPath('Jenkinsfile')
 			} 
