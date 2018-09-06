@@ -2,14 +2,14 @@ import hudson.model.*
 
 
 Build build = Executor.currentExecutor().currentExecutable
-ParametersAction parametersAction = build.getAction(ParametersAction)
+/*ParametersAction parametersAction = build.getAction(ParametersAction)
 parametersAction.parameters.each { ParameterValue v ->
     println v
-}
+}*/
 
-def hardcoded_param = "Project_Name"
+def param_name = "Project_Name"
 def resolver = build.buildVariableResolver
-def hardcoded_param_value = resolver.resolve(hardcoded_param)
+def hardcoded_param_value = resolver.resolve(param_name)
 
 
 pipelineJob(hardcoded_param_value) {
