@@ -30,12 +30,13 @@ pipelineJob(hardcoded_param_value) {
 	  definition { 
 
 	    cpsScm { 
-	      scm { 
-		git { 
-		  remote { url(sshRepo) } 
-		  branches('master') 
-		  scriptPath('Jenkinsfile')
-		} 
-	      } 
-    } 
+	      	scm { 
+			git { 
+			  remote { url(sshRepo) } 
+			  branches('master') 
+			  scriptPath('Jenkinsfile')
+			} 
+	     	} 
+	} 
+}
 }
