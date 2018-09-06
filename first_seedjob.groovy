@@ -14,7 +14,7 @@ def project_name = resolver.resolve(prj_param_name)
 def app_name = resolver.resolve(app_param_name)
 def folderPath = app_name+"/dev-ci-cd/"+project_name
 
-println( app_name, folderPath)
+println folderPath
 
 folder(app_name) {
     displayName(app_name)
