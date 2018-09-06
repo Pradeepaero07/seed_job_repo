@@ -12,13 +12,15 @@ def app_param_name = "Application_Name"
 def resolver = build.buildVariableResolver
 def project_name = resolver.resolve(prj_param_name)
 def app_name = resolver.resolve(app_param_name)
+def folderPath = app_name+"/dev-ci-cd/"+project_name
 
 folder(app_name) {
     displayName(app_name)
+    echo app_name
     description('Folder for dev environment continuous integration and continuous deployment jobs')
 }
 
-pipelineJob(app_name+'/dev-ci-cd/'+project_name) {
+pipelineJob(folderPath) {
 
 	def repo = 'https://github.com/Pradeepaero07/mvndemo.git' 
   	def sshRepo = 'git@github.com:Pradeepaero07/mvndemo.git' 
