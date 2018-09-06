@@ -7,16 +7,18 @@ parametersAction.parameters.each { ParameterValue v ->
     println v
 }*/
 
-def param_name = "Project_Name"
+def prj_param_name = "Project_Name"
+def app_param_name = "Application_Name"
 def resolver = build.buildVariableResolver
-def hardcoded_param_value = resolver.resolve(param_name)
+def project_name = resolver.resolve(prj_param_name)
+def app_name = resolver.resolve(app_param_name)
 
-folder('dev-cicd') {
-    displayName('dev-cicd')
+folder(app_name) {
+    displayName(app_name)
     description('Folder for dev environment continuous integration and continuous deployment jobs')
 }
 
-pipelineJob('dev-cicd/'+hardcoded_param_value) {
+pipelineJob(app_name+'/dev-ci-cd/'+hardcoded_param_value) {
 
 	def repo = 'https://github.com/Pradeepaero07/mvndemo.git' 
   	def sshRepo = 'git@github.com:Pradeepaero07/mvndemo.git' 
