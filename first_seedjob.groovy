@@ -14,23 +14,28 @@ def hardcoded_param_value = resolver.resolve(param_name)
 
 pipelineJob(hardcoded_param_value) {
 
-	definition {
-        cps {
-            sandbox()
-            script("""
-                node{
-			stage('Checkout'){
-				git 'https://github.com/Pradeepaero07/mvndemo.git'
-			}
+	def repo = 'https://github.com/Pradeepaero07/mvndemo.git' 
+  	def sshRepo = 'git@github.com:Pradeepaero07/mvndemo.git' 
 
-			stage('Testing Stage'){
-				withMaven(maven: 'maven3.5.4'){
-					bat 'mvn test'
-				}
-			}
-	
-		}
-            """.stripIndent())
-        }
-    }
+	  description("Your App Pipeline") 
+	  keepDependencies(false) 
+
+	  properties{ 
+	    githubProjectUrl (repo) 
+	    rebuild { 
+	      autoRebuild(false) 
+	    } 
+	  } 
+
+	  definition { 
+
+	    cpsScm { 
+	      scm { 
+		git { 
+		  remote { url(sshRepo) } 
+		  branches('master') 
+		  scriptPath('Jenkinsfile')
+		} 
+	      } 
+    } 
 }
