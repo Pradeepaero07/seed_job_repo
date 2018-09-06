@@ -16,7 +16,7 @@ def folderPath = app_name+"/dev-ci-cd/"+project_name
 
 println folderPath
 
-folder(app_name) {
+folder(app_name+'/dev-ci-cd') {
     displayName(app_name)
     
     description('Folder for dev environment continuous integration and continuous deployment jobs')
