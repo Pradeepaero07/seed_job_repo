@@ -18,23 +18,18 @@ pipelineJob(hardcoded_param_value) {
         cps {
             sandbox()
             script("""
-                node {
-                    stage 'Hello world'
-                    echo 'Hello World 1'
-                    stage "invoke another pipeline"
-                    build 'pipeline-being-called'
-                    stage 'Goodbye world'
-                    echo "Goodbye world"
-					stage('Checkout'){
-					checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Pradeepaero07/mvndemo.git']]])
-					}
-							
-					stage('Testing Stage'){
-						withMaven(maven: 'maven3.5.4'){
-							bat 'mvn test'
-						}
-					}
-                }
+                node{
+			stage('Checkout'){
+				checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Pradeepaero07/mvndemo.git']]])
+			}
+
+			stage('Testing Stage'){
+				withMaven(maven: 'maven3.5.4'){
+					bat 'mvn test'
+				}
+			}
+	
+		}
             """.stripIndent())
         }
     }
