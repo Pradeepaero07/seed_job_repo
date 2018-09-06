@@ -22,7 +22,7 @@ folder(app_name) {
     description('Folder for dev environment continuous integration and continuous deployment jobs')
 }
 folder(app_name+'/dev-ci-cd') {
-    displayName(app_name)
+    displayName('dev-ci-cd')
     
     description('Folder for dev environment continuous integration and continuous deployment jobs')
 }
