@@ -13,16 +13,13 @@ def hardcoded_param_value = resolver.resolve(hardcoded_param)
 
 
 pipelineJob(hardcoded_param_value) {
-    scm {
-        git {
-            remote {
-                name('Pradeepaero07')
-                url('https://github.com/Pradeepaero07/mvndemo')
-            }
-            extensions {
-                //cleanAfterCheckout()
-                relativeTargetDirectory('repo1')
-            }
-        }
+    
+    cpsScm {
+           git {
+                remote {
+                    name('Pradeepaero07')
+                    url('https://github.com/Pradeepaero07/mvndemo')
+                }  
+            }   
     }
 }
