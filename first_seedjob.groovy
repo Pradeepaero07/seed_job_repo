@@ -16,7 +16,7 @@ folder('dev-cicd') {
     description('Folder for dev environment continuous integration and continuous deployment jobs')
 }
 
-pipelineJob(dev-cicd/hardcoded_param_value) {
+pipelineJob('dev-cicd/'+hardcoded_param_value) {
 
 	def repo = 'https://github.com/Pradeepaero07/mvndemo.git' 
   	def sshRepo = 'git@github.com:Pradeepaero07/mvndemo.git' 
