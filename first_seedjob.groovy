@@ -39,10 +39,6 @@ pipelineJob(folderPath) {
 
 	  description("Your App Pipeline") 
 	  keepDependencies(false) 
-		
-	pparameters {
-        stringParam('app-repo-url', 'https://github.com/Pradeepaero07/mvndemo.git', 'This is the github url of application repo')
-    }
 
 	  properties{ 
 	    githubProjectUrl (gitURL) 
