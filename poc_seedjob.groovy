@@ -27,17 +27,17 @@ def jenkins_file_path = resolver.resolve(jenkins_file_path_param)
 def gitURL = resolver.resolve(gitURL_param)
 def branchName  = resolver.resolve(branch_param)
 
-def folderPath = app_name+"-"+gear_id+"/dev-ci-cd/build_job"
+def folderPath = app_name.toLowerCase()+"-"+gear_id+"/dev-ci-cd/build_job"
 
 println folderPath
 
-folder(app_name.toLowerCase()+gear_id) {
-    displayName(app_name.toLowerCase()+gear_id)
+folder(app_name.toLowerCase()+"-"+gear_id) {
+    displayName(app_name.toLowerCase()+"-"+gear_id)
     
     description('Folder for dev environment continuous integration and continuous deployment jobs')
 }
-folder(app_name.toLowerCase()+gear_id+'/dev-ci-cd') {
-    displayName(app_name.toLowerCase()+gear_id+'/dev-ci-cd')
+folder(app_name.toLowerCase()+"-"+gear_id+'/dev-ci-cd') {
+    displayName(app_name.toLowerCase()+"-"+gear_id+'/dev-ci-cd')
     
     description('Folder for dev environment continuous integration and continuous deployment jobs')
 }
