@@ -25,7 +25,7 @@ def config_repo = resolver.resolve(config_repo_param)
 def gear_id = resolver.resolve(gear_id_param)
 def jenkins_file_path = resolver.resolve(jenkins_file_path_param)
 def gitURL = resolver.resolve(gitURL_param)
-def branch = resolver.resolve(branch_param)
+def branchName  = resolver.resolve(branch_param)
 
 def folderPath = app_name+"-"+gear_id+"/dev-ci-cd/build_job"
 
