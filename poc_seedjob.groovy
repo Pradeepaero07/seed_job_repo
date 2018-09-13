@@ -36,8 +36,8 @@ folder(app_name.toLowerCase()+gear_id) {
     
     description('Folder for dev environment continuous integration and continuous deployment jobs')
 }
-folder(app_name+'/dev-ci-cd') {
-    displayName('dev-ci-cd')
+folder(app_name.toLowerCase()+gear_id+'/dev-ci-cd') {
+    displayName(app_name.toLowerCase()+gear_id+'/dev-ci-cd')
     
     description('Folder for dev environment continuous integration and continuous deployment jobs')
 }
