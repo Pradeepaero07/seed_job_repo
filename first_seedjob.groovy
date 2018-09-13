@@ -40,7 +40,7 @@ pipelineJob(folderPath) {
 	  description("Your App Pipeline") 
 	  keepDependencies(false) 
 	parameters {
-        	stringParam('testParam', 'test value', 'test description')
+        	stringParam('maven_goal', 'mvn clean install', 'maven clean install')
     	}
 
 	  properties{ 
