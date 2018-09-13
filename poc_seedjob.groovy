@@ -31,8 +31,8 @@ def folderPath = app_name+"-"+gear_id+"/dev-ci-cd/build_job"
 
 println folderPath
 
-folder(app_name) {
-    displayName(app_name)
+folder(app_name.toLowerCase()+gear_id) {
+    displayName(app_name.toLowerCase()+gear_id)
     
     description('Folder for dev environment continuous integration and continuous deployment jobs')
 }
