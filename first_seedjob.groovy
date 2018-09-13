@@ -39,6 +39,9 @@ pipelineJob(folderPath) {
 
 	  description("Your App Pipeline") 
 	  keepDependencies(false) 
+	parameters {
+        	stringParam('testParam', 'test value', 'test description')
+    	}
 
 	  properties{ 
 	    githubProjectUrl (gitURL) 
